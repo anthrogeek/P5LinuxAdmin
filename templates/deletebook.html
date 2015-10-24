@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<h2> Are you sure you want to delete {{item.name}}? </h2>
+<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+<form action="#" method = 'post'>
+	<a href = '{{ url_for('deleteBookItem',genre_id = item.genre_id, book_id=item.id)}}'>
+	<button type="submit" class="btn btn-default delete" id="submit" type="submit">
+	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+	</a>
+</form>	
+	<a href = '{{url_for('genrelist', genre_id = genre_id) }}'>	
+		<button class="btn btn-default delete">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+	</a>
+</div>
+
+
+{% endblock %}
+
+
