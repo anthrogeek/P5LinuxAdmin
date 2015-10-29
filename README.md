@@ -259,11 +259,17 @@ restart fail2ban
 
 
 ###Third party resources
-*[https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587](https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587)
-*[Deploy Flask App](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
-*[Project 5 Resources](https://discussions.udacity.com/t/project-5-resources/28343)
-*[Postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
-*[List all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
-*[Client-secret-json not found](https://discussions.udacity.com/t/client-secret-json-not-found-error/34070)
-*[Flask-working with virtual environments](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#working-with-virtual-environments)
+[https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587](https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587)
+
+[Deploy Flask App](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+
+[Project 5 Resources](https://discussions.udacity.com/t/project-5-resources/28343)
+
+[Postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
+
+[List all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
+
+[Client-secret-json not found](https://discussions.udacity.com/t/client-secret-json-not-found-error/34070)
+
+[Flask-working with virtual environments](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#working-with-virtual-environments)
 
