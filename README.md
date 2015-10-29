@@ -75,6 +75,7 @@ Change to Port 2200
 
 ##7 Install and configure Apache to serve a Python mod_wsgi application
 [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+
 1. Install Apache
 `sudo apt-get install apache2`
 2. Visit http://52.89.108.138 to verify homepage shows Apache page.
@@ -92,13 +93,15 @@ Change to Port 2200
 6. Create simple app to make sure Flask is installed properly
 `sudo nano __init__.py`
 7. Add this code to __init__.py
-```from flask import Flask
+```python
+from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Hello, I love Linux Administration!"
 if __name__ == "__main__":
-    app.run()```
+    app.run()
+```
 8. Install python pip so we can install Flask and virtualenv
 `sudo apt-get install python-pip`
 `sudo pip install virtualenv`
@@ -124,17 +127,20 @@ if __name__ == "__main__":
 		ErrorLog ${APACHE_LOG_DIR}/error.log
 		LogLevel warn
 		CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
-```
+</VirtualHost>```
 11. Enable virtual host
 `sudo a2ensite FlaskApp`
 12. Create a .wsgi file to serve the Flask app
+
 ```
 cd /var/www/FlaskApp
 sudo nano flaskapp.wsgi 
 ```
+
 13. Add this code to the flaskapp.wsgi file [Flask Documentation](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file)
-```#!/usr/bin/python
+
+```
+#!/usr/bin/python
 import sys, os
 import logging
 
@@ -147,8 +153,8 @@ os.chdir("/var/www/FlaskApp/")
 
 from FlaskApp import app as application
 application.secret_key = 'super_secret_key'
-
 ```
+
 14. Restart Apache
 `service apache2 restart`
 15. 9. Visit http://52.89.108.138 to verify site is showing "Hello, I love Linux Administration!""
@@ -187,6 +193,7 @@ apt-get install git
 ```
 cd /var/www/FlaskApp
 touch .htaccess |echo "$RedirectMatch 404 /\.git" >> .htaccess`
+```
 4. Rename application.py to __init__.py
 `mv application.py __init__.py`
 5. Update files to show postgresql engine instead of sqlite
@@ -199,6 +206,7 @@ nano lotsofbooks.py
 ```
 python database_setup.py
 python lotsofbooks.py
+```
 
 7. Restart server
 `service apache2 restart`
@@ -213,7 +221,7 @@ python lotsofbooks.py
 3. Go to [https://console.developers.google.com/project](https://console.developers.google.com/project) and add 
 http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com/oauth2callback to Authorized JavaScript origins and http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com/oauth2callback to Authorized Redirects.
 
--Facebook
+*Facebook
 4. Go to Facebook Developer site [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
 5. Add [http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com](http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com) to their site URL
 
@@ -245,17 +253,17 @@ restart fail2ban
 `sudo service fail2ban stop`
 `sudo service fail2ban start`
 
--install [Glances](http://glances.readthedocs.org/en/latest/glances-doc.html#introduction)
--`sudo pip install Glances`
+*install [Glances](http://glances.readthedocs.org/en/latest/glances-doc.html#introduction)
+*`sudo pip install Glances`
 
 
 
 ###Third party resources
--[https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587](https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587)
--[Deploy Flask App](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
--[Project 5 Resources](https://discussions.udacity.com/t/project-5-resources/28343)
--[Postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
--[List all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
--[Client-secret-json not found](https://discussions.udacity.com/t/client-secret-json-not-found-error/34070)
--[Flask-working with virtual environments](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#working-with-virtual-environments)
+*[https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587](https://discussions.udacity.com/t/markedly-underwhelming-and-potentially-wrong-resource-list-for-p5/8587)
+*[Deploy Flask App](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+*[Project 5 Resources](https://discussions.udacity.com/t/project-5-resources/28343)
+*[Postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04)
+*[List all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
+*[Client-secret-json not found](https://discussions.udacity.com/t/client-secret-json-not-found-error/34070)
+*[Flask-working with virtual environments](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#working-with-virtual-environments)
 
