@@ -6,9 +6,10 @@ This project consists installing a baseline Ubuntu Linux server and deploying a 
 
 This application can be found at: [http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com/](http://ec2-52-89-108-138.us-west-2.compute.amazonaws.com/) and [http://52.89.108.138/](http://52.89.108.138/)
 
-
-$ ssh -v grader@52.89.108.138 -p2200
-
++Also after suggestion from reviewer, setup DNS to this location:
++[http://anthrogeek.ddns.net/](http://anthrogeek.ddns.net/)
++
++$ ssh grader@52.89.108.138 -p2200
 
 ##Steps to run
 
@@ -232,7 +233,7 @@ if issues are found use
 `sudo tail -50 /var/log/apache2/error.log`
 to see the last 50 lines of the apache error log to troubleshoot.
 
-##Add key to Grader [Manually add key](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
+##Add key to Grader and Disable Root login [Manually add key](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
 1. on local machine `ssh-keygen`
 2. Display the content of the key and copy the content `cat ~/.ssh/id_rsa.pub`
 2. Switch to grader `su - grader`
@@ -240,6 +241,12 @@ to see the last 50 lines of the apache error log to troubleshoot.
 4. Add the content to the authorized_keys file
 `echo public_key_string >> ~/.ssh/authorized_keys` 
 where public_key_string is from step 2.
+5. Edit ssh config file
+`nano /etc/ssh/sshd_config`
+6. Append `AllowUsers grader`
+7. Change PermitRootLogin from `without-password` to `no`
+8. sudo service ssh restart
+
 
 ##Ban abuse and Monitor [failban](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
 -`apt-get install fail2ban`
