@@ -263,6 +263,8 @@ restart fail2ban
 *install [Glances](http://glances.readthedocs.org/en/latest/glances-doc.html#introduction)
 *`sudo pip install Glances`
 
+Installed [MondoMindi](https://help.ubuntu.com/community/MondoMindi) for server backups.
+
 
 
 ###Third party resources
